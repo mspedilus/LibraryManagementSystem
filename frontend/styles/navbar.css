@@ -1,0 +1,72 @@
+body{
+  background-color: rgba(67,80,88,255);
+}
+
+/*Top navbar*/
+.topNav {
+    color: white;
+    background-color: rgba(67,80,88,255);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(67,80,88,255);
+    color: white;
+    width: 100vw;
+}
+
+/* Button used to show/hide navbar items */
+.navBtn {
+  position: relative;
+  top: -3px;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  background-color: rgba(67,80,88,255);
+}
+
+/* Navbar items container */
+.navItems-container{
+  display: block;
+  max-width: 300px;
+}
+
+/* Navbar items */
+.navbar-Items{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(67,80,88,255);
+  height: 220px;
+  font-size: 20px;
+}
+
+/* Links in Navbar */
+.navbar-Items a {
+  width: 100vw;  
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+}
+
+.navbar-Items a:hover {
+  background-color: rgb(46, 56, 61);
+
+}
+
+/* Used for toggle */
+.show-hide {
+  display: none;
+}
+
+.content{
+  background-color: white;
+  height: 100vh;
+}
+
+.icon{
+  position: relative;
+  top: -2px;
+  margin-right: 5px;
+}
