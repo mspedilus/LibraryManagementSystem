@@ -74,15 +74,15 @@
     </div>
 
 
-    <!-- The Modal -->
+    <!-- Add Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-            <h4 class="modal-title">Add Book</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <h4 class="modal-title">Add Book</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
     
             <!-- Modal body -->
@@ -116,6 +116,50 @@
         </div>
         </div>
     </div>
+
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="editModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+    
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Edit Book</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form id="editForm">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" name="isbn" id="edit_isbn" required>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="edit_title">
+                        <label for="author">Author(s)</label>
+                        <input type="text" name="author" id="edit_author">
+                        <label for="desc">Description</label>
+                        <input type="text" name="desc" id="edit_desc">
+                        <label for="publisher">Publisher</label>
+                        <input type="text" name="publisher" id="edit_publisher">
+                        <label for="category">Category</label>
+                        <input type="text" name="category" id="edit_category">
+                        <label for="price">Price ($)</label>
+                        <input type="text" name="price" id="edit_price">
+                        <label for="qty">Quantity</label>
+                        <input type="text" name="qty" id="edit_qty">
+                    </form>
+                </div>
+        
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success save">Save</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+        
+            </div>
+            </div>
+        </div>
 
 </body>
 <script src="./scripts/navbar.js"></script>
