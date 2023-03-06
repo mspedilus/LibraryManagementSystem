@@ -36,11 +36,22 @@ def deleteBook():
 def insertNewBook():
     payload = json.loads(request.form['data'])
     book_id = books.insertNewBook(connection, payload)
-    print(book_id)
     response = jsonify({
         'book_id': book_id
     })
     return response
+
+
+@app.route('/editBook', methods=['PUT'])
+@cross_origin()
+def editBook():
+    payload = json.loads(request.form['data'])
+    id = books.editBook(connection, payload)
+    response = jsonify({
+        'book_id': id
+    })
+    return response
+
 
 @app.route('/getAllReaders', methods=['GET'])
 @cross_origin()

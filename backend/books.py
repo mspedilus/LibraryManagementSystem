@@ -2,7 +2,6 @@ from sql_connection import get_sql_connection
 
 #Retrieves all books in books table
 def getAllBooks(connection):
-    print("HII")
     cursor = connection.cursor()
     query = ("SELECT * FROM books")
     cursor.execute(query)
@@ -44,6 +43,28 @@ def deleteBook(connection, book_id):
     connection.commit()
     return
 
+
+def editBook(connection, book):
+    cursor = connection.cursor()
+    query = ("UPDATE books SET ISBN=%s, book_title=%s, author_name=%s, category=%s, publisher=%s, price=%s, quantity=%s, description=%s"
+             "WHERE book_id=%s")
+    data = (book['ISBN'], book['book_title'], book['author_name'], book['category'],
+            book['publisher'], book['price'], book['quantity'], book['description'], book['book_id'])
+    cursor.execute(query, data)
+    connection.commit()
+    return
+
 if __name__=='__main__':
     connection = get_sql_connection()
-    #insertNewBook(connection, {"ISBN": "123", "book_title": "TEst", "author_name": "TEST", "category": "TEST", "publisher": "TEST", "price": "1", "quantity": "2", "description": "TEST"})
+    editBook(connection, 
+    {
+        "ISBN":"999",
+        "book_title":"999",
+        "author_name":"999",
+        "category": "999",
+        "publisher": "999",
+        "price": "999",
+        "quantity": "100",
+        "description": "100",
+        "book_id":"1"
+    })

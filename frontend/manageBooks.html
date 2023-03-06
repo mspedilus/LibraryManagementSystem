@@ -56,6 +56,7 @@
             <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
+                    <th>Book ID</th>
                     <th>ISBN</th>
                     <th>Book Name</th>
                     <th>Author Name</th>
@@ -89,7 +90,7 @@
             <div class="modal-body">
                 <form id="bookForm">
                     <label for="isbn">ISBN</label>
-                    <input type="text" name="isbn" id="isbn" required>
+                    <input type="text" name="isbn" id="isbn" >
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title">
                     <label for="author">Author(s)</label>
@@ -109,7 +110,7 @@
     
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-success save">Save</button>
+                <button type="button" class="btn btn-success save-add">Save</button>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
     
@@ -132,8 +133,10 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <form id="editForm">
+                        <label for="bookId">Book ID</label>
+                        <input type="text" name="bookId" id="edit_id" disabled>
                         <label for="isbn">ISBN</label>
-                        <input type="text" name="isbn" id="edit_isbn" required>
+                        <input type="text" name="isbn" id="edit_isbn">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="edit_title">
                         <label for="author">Author(s)</label>
@@ -153,7 +156,7 @@
         
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success save">Save</button>
+                    <button type="button" onclick="saveEditedBook()" class="btn btn-success save-edit">Save</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
         

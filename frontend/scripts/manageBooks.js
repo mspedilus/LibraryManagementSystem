@@ -11,6 +11,7 @@ function deleteItem(tag) {
 
 function editItem(tag) {
     var data = JSON.parse(tag.closest("tr").dataset.data)
+    document.getElementById("edit_id").value = data.book_id
     document.getElementById("edit_isbn").value = data.ISBN
     document.getElementById("edit_title").value = data.book_title
     document.getElementById("edit_author").value = data.author_name
@@ -21,6 +22,23 @@ function editItem(tag) {
     document.getElementById("edit_qty").value = data.quantity
 }
 
+function saveEditedBook(){
+    var formData = $("#editForm").serializeArray()
+    callApi("PUT", editBookUrl, {"data": JSON.stringify({
+        "ISBN":  formData[0].value,
+        "book_title": formData[1].value,
+        "author_name": formData[2].value,
+        "description": formData[3].value,
+        "publisher": formData[4].value,
+        "category": formData[5].value,
+        "price": formData[6].value,
+        "quantity": formData[7].value,
+        "book_id": document.getElementById("edit_id").value
+    })})
+}
+
+
+
 $(document).ready(() =>{
     //Json data by api call for order table
     $.get(getAllBooksUrl, (response) => {
@@ -29,6 +47,7 @@ $(document).ready(() =>{
             $("#bookTotal").text("Total: " + response.length || 0)
             $.each(response, (index, book) => {
                  table += `<tr data-id="${book.book_id}" data-name="${book.book_title}" data-data=${JSON.stringify(book)}> ` +
+                    '<td>'+ book.book_id +'</td>' +
                     '<td>'+ book.ISBN +'</td>'+
                     '<td>'+ book.book_title +'</td>'+
                     '<td>'+ book.author_name +'</td>'+
@@ -50,7 +69,7 @@ $(document).ready(() =>{
 
 
     
-    $(document).on("click", ".save", () => {
+    $(document).on("click", ".save-add", () => {
         var form = $("#bookForm").serializeArray();
         var data = { 
             "ISBN": form[0].value, 
@@ -64,6 +83,7 @@ $(document).ready(() =>{
         }
         callApi("POST", insertBookUrl, {"data": JSON.stringify(data)}) 
     })
+
 
 });
 
